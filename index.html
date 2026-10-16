@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra tam giác đều</title>
+</head>
+<body>
+  <h1>Kiểm tra tam giác đều</h1>
+  <p>Nhập độ dài ba cạnh vào các hộp thoại để kiểm tra tam giác.</p>
+
+  <script>
+    const sideAInput = prompt("Nhập độ dài cạnh thứ nhất:");
+    const sideBInput = prompt("Nhập độ dài cạnh thứ hai:");
+    const sideCInput = prompt("Nhập độ dài cạnh thứ ba:");
+
+    if (sideAInput === null || sideBInput === null || sideCInput === null) {
+      alert("Bạn đã hủy thao tác nhập.");
+    } else {
+      const sideA = Number(sideAInput);
+      const sideB = Number(sideBInput);
+      const sideC = Number(sideCInput);
+
+      if (
+        ![sideA, sideB, sideC].every(Number.isFinite) ||
+        sideA <= 0 ||
+        sideB <= 0 ||
+        sideC <= 0
+      ) {
+        alert("Vui lòng nhập ba số hợp lệ lớn hơn 0.");
+      } else if (
+        sideA + sideB <= sideC ||
+        sideA + sideC <= sideB ||
+        sideB + sideC <= sideA
+      ) {
+        alert("Ba cạnh đã nhập không tạo thành một tam giác.");
+      } else if (sideA === sideB && sideB === sideC) {
+        alert("Đây là tam giác đều.");
+      } else {
+        alert("Đây không phải là tam giác đều.");
+      }
+    }
+  </script>
+</body>
+</html>
